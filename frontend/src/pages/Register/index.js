@@ -29,8 +29,6 @@ export default function Register(){
             uf
         };
 
-        console.log('sss');
-
         try{
             const response = await api.post('ongs', data);
 
