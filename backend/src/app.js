@@ -1,6 +1,7 @@
 const express = require('express');
 const routes = require('./routes');
-const cors = require('cors');
+const cors = require('cors'); // Use to not allow access from everywhere
+const { errors } = require('celebrate'); // To show a better error message when use validation
 
 const app = express();
 
@@ -11,7 +12,7 @@ app.use(cors());
 // }));
 
 app.use(express.json()); // para poder pegar o Body no formato JSON.
-
 app.use(routes);
+app.use(errors());
 
-app.listen(3333);
+module.exports = app;
